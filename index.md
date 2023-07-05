@@ -43,7 +43,7 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+**My First Milestone was getting the servo Motors to work. At first, I had a bit of trouble to download all of the files and get my code working, but after adjusting my arduino, I finaly got them to spin. The servos are going to be used as different parts of the robotic arm, and they will turn at a couple degrees, so far, they are all set to 90 degrees. Right now, I have no challenges I am facing, but in the future I will continue to finish my project and possibly add wheels to the robotic arm so it could move and pick up objects.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
