@@ -43,31 +43,103 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
-**My First Milestone was getting the servo Motors to work. At first, I had a bit of trouble to download all of the files and get my code working, but after adjusting my arduino, I finaly got them to spin. The servos are going to be used as different parts of the robotic arm, and they will turn at a couple degrees, so far, they are all set to 90 degrees. Right now, I have no challenges I am facing, but in the future I will continue to finish my project and possibly add wheels to the robotic arm so it could move and pick up objects.**
+**My first milestone was to get the arm built and functioning properly along with the servos. The servos help the arm move a certain degree, this will help the arm pick up an object by moving with the servos. One major challenge I am facing is not getting the right degree of the servos. At default, they are all set to 90 degrees. During the building, I needed to place the parts that go onto the servos at the right degree, so that the arm can have full range of motion with all 4 servos. I will solve this problem later on in the future by adjusting the degree in which the servos rotate to. I'll also fix the parts on the servos so that they are in the right place when the servo is at 90 degrees. My plan to complete this project is to pair the arm with the remote controlled PS2 controller, and pair it with an app on my phone which will allow me to control the arm with my phone. Finaly, I plan to add wheels to the arm, so it could move and pick up objects. I plan to make the wheels contollable from my phone and PS2 controller**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
-Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
+
+**Starter code to get the multiple servos working:**
 
 ```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+#include <Servo.h>
+Servo myservo1;  // create servo object to control a servo
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+int pos1=90, pos2=90, pos3=90, pos4=90; 
+
+void setup()
+{
+  myservo1.attach(3);    // set the control pin of servo 1 to 3 digital I/0
+  myservo2.attach(5);    // set the control pin of servo 1 to 3 digital I/0
+  myservo3.attach(6);    // set the control pin of servo 1 to 3 digital I/0
+  myservo4.attach(9);    // set the control pin of servo 1 to 3 digital I/0
+  
+  myservo1.write(pos1);
+  myservo2.write(pos2);
+  myservo3.write(pos3);
+  myservo4.write(pos4);
+  delay(1500);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop() 
+{
+
+  // close the claw 
+  for(pos4;pos4>45;pos4--)
+  {
+    myservo4.write(pos4);
+  }
+  delay(1000);
+  
+ // open the claw
+ for(pos4;pos4<120;pos4++)
+ {
+   myservo4.write(pos4);
+ }
+  delay(1000);
+
+// turn right
+  for(pos1;pos1>30;pos1--)
+  {
+    myservo1.write(pos1);
+    delay(5);      // delay 5ms（used to adjust the servo speed）
+  }
+  delay(1000);
+
+   // turn to left 
+  for(pos1;pos1<150;pos1++)
+  {
+    myservo1.write(pos1);
+    delay(5);
+  }
+  delay(1000);
+
+  //  stretch out the arm
+  for(pos2;pos2<130;pos2++)
+  {
+    myservo2.write(pos2);
+    delay(5);
+  }
+  delay(1000);\
+
+  // retracte the arm
+  for(pos2;pos2>80;pos2--)
+  {
+    myservo2.write(pos2);
+    delay(5);
+  }
+  delay(1000);
+
+  // raise the arm 
+  for(pos3;pos3<100;pos3++)
+  {
+    myservo3.write(pos3);
+    delay(5);
+  }
+  delay(1500);
+
+ // Lower the arm 
+  for(pos3;pos3>40;pos3--)
+  {
+    myservo3.write(pos3);
+    delay(5);
+  }
+  delay(1000);
 
 }
 ```
