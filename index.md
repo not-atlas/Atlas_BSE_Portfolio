@@ -52,7 +52,7 @@ Here's where you'll put images of your schematics. [Tinkercad](https://www.tinke
 
 # Code
 
-**Starter code to get the multiple servos working:**
+**Starter code to get the arm moving with the PS2 controller input**
 
 ```c++
 #include <Servo.h>
