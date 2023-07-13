@@ -19,7 +19,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -31,15 +31,9 @@ For your final milestone, explain the outcome of your project. Key details to in
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+**My second Milestone was successfully attaching the wheels to my arm along with getting the app working on the phone. I can now connect with the HC-06 through the android phone and send inputs through the phone, which will move the arm accordingly. I also attached the current arm onto a previous rover that I worked on which had wheels. One surprising thing about the project, was how well the base for the arm fit in with the base for the rover. Some of the challenges I faced include that the main arm only had one corresponding screw hole to screw into the rover, meaning that it would move around. I overcame this challenge by taking 2 shoelaces and tying them around the front to create stability. Another challenge that I faced was that the arm was too high to grab things down below, I fixed this by swapping the standoffs between the arduino, and the arm. This rose another challenge though, as the arduino got in the way, as the arm was rotating. I also solved this by using a pocket knife to carve into the frame of the arm and allow it to rotate through the arduino itself. Before my final Milestone, I need to complete wiring and coding the robot so it can move around and pick up objects. I also am planning to use another remote control bluetooth module with the PS2 joysticks to steer the robot remotely.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
-- Technical details of what you've accomplished and how they contribute to the final goal
-- What has been surprising about the project so far
-- Previous challenges you faced that you overcame
-- What needs to be completed before your final milestone 
 
 # First Milestone
 
