@@ -140,20 +140,259 @@ void loop()
 }
 ```
 
+**Modified code for non-remote controlled arm with the wheels**
+
+```c++
+#include <Servo.h> // add the servo libraries
+Servo myservo1; // create servo object to control a servo
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+int pos1=90, pos2=90, pos3=90, pos4=90; // define the variable of 4 servo angle,and assign the initial value (that is the boot posture
+//angle value)
+const int right_X = A2; // define the right X pin to A2
+const int right_Y = A5; // define the right Y pin to A5
+const int right_key = 7; // define the right key pin to 7（that is the value of Z）
+const int left_X = A3; // define the left X pin to A3
+const int left_Y = A4; // define the left X pin to A4
+const int left_key = 8; //define the left key pin to 8（that is the value of Z）
+const int in1 = 12; // define the in1 pin from the motor driver
+const int in2 = 13; // define the in2 pin from the motor driver
+const int in3 = 10; // define the in3 pin from the motor driver
+const int in4 = 11; // define the in4 pin from the motor driver
+const int enA = 2;
+const int enB = 4;
+int x1,y1,z1; // define the variable, used to save the joystick value it read.
+int x2,y2,z2;
+
+
+void setup()
+{
+// boot posture
+myservo1.write(pos1);
+delay(1000);
+myservo2.write(pos2);
+myservo3.write(pos3);
+myservo4.write(pos4);
+delay(1500);
+pinMode(right_key, INPUT_PULLUP); // set the right/left key to INPUT_PULLUP
+pinMode(left_key, INPUT_PULLUP);
+pinMode(in1, OUTPUT); // set all Input keys in the motor driver to OUTPUT
+pinMode(in2, OUTPUT);
+pinMode(in3, OUTPUT);
+pinMode(in4, OUTPUT);
+pinMode(enA, OUTPUT);
+pinMode(enB, OUTPUT);
+Serial.begin(9600); // set the baud rate to 9600
+}
+void loop()
+{
+myservo1.attach(3); // set the control pin of servo 1 to D3  dizuo-servo1-3
+myservo2.attach(5); // set the control pin of servo 2 to D5  arm-servo2-5
+myservo3.attach(6); //set the control pin of servo 3 to D6   lower arm-servo-6
+myservo4.attach(9); // set the control pin of servo 4 to D9  claw-servo-9
+x2 = analogRead(right_X); //read the right X value
+y2 = analogRead(right_Y); // read the right Y value
+z2 = digitalRead(right_key); //// read the right Z value
+x1 = analogRead(left_X); //read the left X value
+y1 = analogRead(left_Y); //read the left Y value
+z1 = digitalRead(left_key); // read the left Z value
+//delay(5); // lower the speed overall
+
+// claw
+claw();
+
+// rotate
+turn();
+
+// upper arm
+upper_arm();
+
+//lower arm
+lower_arm();
+
+//right wheel forward
+if (z2==0) // if right joystick pushed down
+{
+right_wheel();
+}
+else
+{
+stop_right();
+}
+
+//left wheel forward
+if (z1==0) // if left joystick pushed down
+{
+left_wheel();
+}
+else
+{
+stop_left();
+}
+
+}
+
+
+
+//***************************************************
+//claw
+void claw()
+{
+//claw
+if(x1<50) // if push the left joystick to the right
+{
+pos4=pos4+3; 
+myservo4.write(pos4); //servo 4 operates the motion, the claw gradually opens. 
+delay(5);
+
+if(pos4>120) //limit the largest angle when open the claw 
+{
+pos4=120;
+}
+}
+
+if(x1>1000) ////if push the right joystick to the left 
+{
+pos4=pos4-3; 
+myservo4.write(pos4); // servo 4 operates the action, claw is gradually closed.
+delay(5);
+if(pos4<45) // 
+{
+pos4=45; //limit the largest angle when close the claw
+}
+
+}
+}
+
+
+
+//******************************************************/
+// turn
+void turn()
+{
+if(x2<50) //if push the right joystick to the let 
+{
+pos1=pos1+3; 
+myservo1.write(pos1); // arm turns left
+delay(5);
+if(pos1>180) //limit the angle when turn right 
+{
+pos1=180;
+}
+
+}
+
+if(x2>1000) // if push the right joystick to the right
+{
+pos1=pos1-3; 
+myservo1.write(pos1); //servo 1 operates the motion, the arm turns right. 
+delay(5);
+if(pos1<1) // limit the angle when turn left
+{
+pos1=1;
+}
+}
+}
+
+
+
+
+//**********************************************************/
+// lower arm
+void lower_arm()
+{
+if(y2>1000) // if push the right joystick downward
+{
+pos2=pos2-2;
+myservo2.write(pos2); // lower arm will draw back
+delay(5);
+if(pos2<25) // limit the retracted angle
+{
+pos2=25;
+}
+}
+
+if(y2<50) // if push the right joystick upward
+{
+pos2=pos2+2;
+myservo2.write(pos2); // lower arm will stretch out
+delay(5);
+if(pos2>180) // limit the stretched angle
+{
+pos2=180;
+}
+}
+}
+
+
+
+
+
+//*************************************************************/
+
+//upper arm
+void upper_arm()
+{
+if(y1<50) // if push the left joystick downward
+{
+pos3=pos3-2;
+myservo3.write(pos3); // upper arm will go down
+delay(5);
+if(pos3<1) //  limit the angle when go down 
+{
+pos3=1;
+}
+}
+if(y1>1000) // if push the left joystick upward
+{
+pos3=pos3+2;
+myservo3.write(pos3); // the upper arm will lift
+delay(5);
+
+if(pos3>135) //limit the lifting angle 
+{
+pos3=135;
+}
+}
+}
+
+//right wheel forward
+void right_wheel()
+{
+digitalWrite(in1, HIGH);
+digitalWrite(in2, LOW);
+analogWrite(enA, 200);
+}
+
+//left wheel forward
+void left_wheel()
+{
+digitalWrite(in3, HIGH);
+digitalWrite(in4, LOW);
+analogWrite(enB, 200);
+}
+
+//stop the right wheel from turning
+void stop_right()
+{
+digitalWrite(in1, LOW);
+digitalWrite(in2, LOW);
+}
+
+//stop the left wheel from turning
+void stop_left()
+{
+digitalWrite(in3, LOW);
+digitalWrite(in4, LOW);
+}
+```
+
+
+
 # Bill of Materials
-Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
-
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
+| LAFVIN phone controlled robot arm kit | Used for building the arm itself | $35.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/LAFVIN-Acrylic-Mechanical-Compatible-Tutorial/dp/B07ZYZVNY4)"> Link </a> |
+| SunFounder 3 in 1 Starter Kit for Arduino Uno | Used to build the rover part of the arm | $69.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit)"> Link </a> |
