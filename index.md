@@ -396,3 +396,6 @@ digitalWrite(in4, LOW);
 |:--:|:--:|:--:|:--:|
 | LAFVIN phone controlled robot arm kit | Used for building the arm itself | $35.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.amazon.com/LAFVIN-Acrylic-Mechanical-Compatible-Tutorial/dp/B07ZYZVNY4)"> Link </a> |
 | SunFounder 3 in 1 Starter Kit for Arduino Uno | Used to build the rover part of the arm | $69.99 | <a href="[https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/](https://www.sunfounder.com/products/sunfounder-3-in-1-iot-smart-car-learning-ultimate-starter-kit)"> Link </a> |
+
+# Scematics 
+
