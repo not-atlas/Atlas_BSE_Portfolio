@@ -5,22 +5,17 @@ This is my project of a Robotic arm which I attached onto a previous project. I 
 |:--:|:--:|:--:|:--:|
 | Atlas M | Head-Royce School (HRS) | Mechanical Engineering | Incoming Freshman
 
-
 ![Headstone Image](unnamed.jpg)
 
-  
 # Final Milestone
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
-
-
 
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
 - What your biggest challenges and triumphs were at BSE
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
-
 
 
 # Second Milestone
@@ -30,15 +25,12 @@ For your final milestone, explain the outcome of your project. Key details to in
 <iframe allowfullscreen width='852' height='480' scrolling='no' frameborder='0' style='border: none;' src='https://www.wevideo.com/embed/#3130678975' allowfullscreen></iframe>
 
 
-
 # First Milestone
 
 **My first milestone was getting my arm built and functioning along with the PS2 controller attached to it. After I got all 4 servos working, I went on to finish the arm itself. A servo works similarly to a motor, but it can only move a certain degree. Meaning that servos work perfectly for things like steering a RC car, or a robotic arm. The arm moves by taking the X and Y inputs of each joystick from the PS2 controler. The signals are then sent to the arduino to move the servos corespondingly. One major challenge that I faced was getting the angle right for the each servo on the arm. Since each servo is set at 90 degrees by default, I need to put on the parts at the right angle for the arm to have full range of motion. For example, if the servo is set at 60 degrees, the actual arm part that goes on the servo needs to be at the same degree as the servo. Otherwise, the joint in the arm will not function properly. The next step for me is to get the app working on the phone, and to add wheels, and a battery pack to the arm.**
 
 <iframe allowfullscreen width='852' height='480' scrolling='no' frameborder='0' style='border: none;' src='https://www.wevideo.com/embed/#3128006909' allowfullscreen></iframe>
 
-# Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
 
 # Code
 
@@ -393,4 +385,5 @@ digitalWrite(in4, LOW);
 
 # Scematics 
 
+**Wiring diagram of motor driver to arduino shield**
 ![Headstone Image](scematic_old.png)
