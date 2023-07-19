@@ -1,5 +1,5 @@
-# Phone Controlled Robotic Arm
-Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
+# Robotic arm Rover
+This is my project of a Robotic arm which I attached onto a previous project. I modified the code to make the wheels move with the press of the joystick button. My biggest challenge was how I had to learn the arduino code by myself, and coding in the arduino code. But this was also one of the things I enjoyed learning most.
 
 You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
 ```HTML 
