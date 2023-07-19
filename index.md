@@ -1,12 +1,6 @@
 # Robotic arm Rover
 This is my project of a Robotic arm which I attached onto a previous project. I modified the code to make the wheels move with the press of the joystick button. My biggest challenge was how I had to learn the arduino code by myself, and coding in the arduino code. But this was also one of the things I enjoyed learning most.
 
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
-
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Atlas M | Head-Royce School (HRS) | Mechanical Engineering | Incoming Freshman
