@@ -400,4 +400,4 @@ digitalWrite(in4, LOW);
 
 # Scematics 
 
-![Headstone Image](Screenshot 2023-07-18 134402.png)
+![Headstone Image](schematic_old.png)
