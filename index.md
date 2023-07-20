@@ -206,6 +206,8 @@ digitalWrite(in4, LOW);
 
 # Bill of Materials
 
+**NOTE: The materials listed are only the electronic parts and do NOT include the base. If you want to make this project for yourself, you might have to build your own structure for the arm/rover**
+
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
 | Servos 4x | Used for arm itself | $9.99 | <a href="https://www.amazon.com/Micro-Servos-Helicopter-Airplane-Controls/dp/B07MLR1498/ref=asc_df_B07MLR1498/?tag=hyprod-20&linkCode=df0&hvadid=330396616558&hvpos=&hvnetw=g&hvrand=13137842343917798051&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032027&hvtargid=pla-670000123095&psc=1&tag=&ref=&adgrpid=66216311757&hvpone=&hvptwo=&hvadid=330396616558&hvpos=&hvnetw=g&hvrand=13137842343917798051&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032027&hvtargid=pla-670000123095"> Link </a> |
