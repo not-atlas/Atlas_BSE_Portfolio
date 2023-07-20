@@ -223,4 +223,4 @@ digitalWrite(in4, LOW);
 # Scematics 
 
 **Wiring diagram of motor driver to arduino shield**
-![Headstone Image](scematic_old.png)
+![Headstone Image](scematic_old(1).png)
